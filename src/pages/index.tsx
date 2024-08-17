@@ -10,7 +10,12 @@ import { toast } from "react-toastify";
 export default function Home() {
   const wallet = useWallet();
   const handleClaim = async () => {
-    if (!wallet || !wallet.publicKey || !wallet.connected) {
+    if (
+      !wallet ||
+      !wallet.publicKey ||
+      !wallet.connected ||
+      !wallet.signMessage
+    ) {
       return;
     }
 
