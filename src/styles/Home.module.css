@@ -1,8 +1,8 @@
 .MainContainer {
-  width: 500px;
+  max-width: fit-content;
   height: fit-content;
   border: 1px solid black;
-  margin: 4em auto;
+  margin: 0 auto;
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -27,6 +27,7 @@
 
 .ContentContainer {
   padding: 2em 1.5em 1em 1.5em;
+  max-width: 400px;
   /* border: 1px solid black; */
   background: linear-gradient(270deg, #1d0b0a 0%, #ab4924 52%, #1d0b0a 100%);
   color: white;
