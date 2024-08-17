@@ -99,6 +99,9 @@
   border-radius: 8px;
 }
 
+.ContentContainer button:disabled {
+  cursor: not-allowed;
+}
 .ContentContainer button img {
   display: flex;
   width: 20px;
@@ -158,4 +161,13 @@
   font-family: inter;
   color: #3a3b3c;
   font-size: 1.3em;
+}
+
+@media screen and (max-width: 600px) {
+  .MainContainer {
+    width: fit-content;
+  }
+  .ContentContainer {
+    padding: 2em 1em 1em 1em;
+  }
 }

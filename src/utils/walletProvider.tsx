@@ -36,6 +36,7 @@ export const WalletContextProvider = ({
 
   const wallets = useMemo(
     () => [
+      new PhantomWalletAdapter(),
       /**
        * Wallets that implement either of these standards will be available automatically.
        *

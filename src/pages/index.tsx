@@ -6,9 +6,13 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import base58 from "bs58";
 import { connection } from "@/utils/walletProvider";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export default function Home() {
   const wallet = useWallet();
+
+  const [claimed, setClaimed] = useState<boolean>(false);
+
   const handleClaim = async () => {
     if (
       !wallet ||
@@ -25,6 +29,7 @@ export default function Home() {
       const signature = await wallet.signMessage(messageBytes);
       console.log(base58.encode(signature));
       toast.success("Signing Mesaage Done ");
+      setClaimed(true);
     } catch (error) {
       toast.error("Signing Mesaage Error ");
 
@@ -64,7 +69,11 @@ export default function Home() {
             <span>2</span>
             <span>Claim FREE Raffle Ticket</span>
           </div>
-          <button onClick={() => handleClaim()}>
+          <button
+            onClick={() => handleClaim()}
+            style={{ background: claimed ? "black" : "" }}
+            disabled={claimed}
+          >
             Claim Raffle
             <Image src="/btn.png" alt="error" width={20} height={20} />
           </button>
